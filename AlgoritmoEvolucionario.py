@@ -8,14 +8,14 @@ import random, time
 
 class Evo():
     # Método __init__
-    def __init__(self, tam_pop = 50, geracoes = 1000):
+    def __init__(self, tam_pop = 100, geracoes = 1000):
         
         self.pop = []
         self.tam_populacao = tam_pop
         self.geracoes = geracoes
         self.soma_avaliacoes = 0
 
-    # Criar métodos de manipulação de população.
+    # Método de manipulação de população.
     def popular(self):
         for i in range(self.tam_populacao):
             self.pop.append(Cromossomo(10))
@@ -53,7 +53,7 @@ class Evo():
     
     # TODO Método de inicialização da classe.
     def algo_genetico(self):
-        print("====================\nSimulação de mutação genético\n====================")
+        print("====================\nSimulação de padrão criptográfico\n====================")
         self.popular()
         self.avalia()
         ordem = sorted(self.pop, key = lambda x: x.avaliacao, reverse = True)
@@ -70,8 +70,12 @@ class Evo():
             self.pop = self.nova_g()
             self.avalia()
             ordem = sorted(self.pop, key = lambda x: x.avaliacao, reverse = True)
-        print('Melhor avaliado -> %s' % (ordem[1]))
+        print('Algoritmo mais fácil de ser identificado -> %s' % (ordem[1]))
 
 # Nova instância para executar algoritmo
-evolucao = Evo(tam_pop = 40, geracoes = 20)
+# Número máximo de gerações recomendado: 10.
+#Para números maiores, modifique a porcentagem de mutação de acordo com a necessidade.
+evolucao = Evo(tam_pop = 10, geracoes = 10)
 evolucao.algo_genetico()
+
+#Fim do algoritmo.

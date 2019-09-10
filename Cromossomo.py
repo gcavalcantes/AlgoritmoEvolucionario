@@ -27,7 +27,7 @@ class Cromossomo():
         # Para cada número no cromossomo
         for i in range(self.tamanho):
             # Se um número real for maior que 0,5
-            if random.random() > .5:
+            if random.random() >= .5:
                 # Valor do gene é 1
                 novo_valor += '1'
             else:
@@ -71,7 +71,7 @@ class Cromossomo():
     def v_real(self, i = 0, s = 100):
         return i + (s - i)/(2 ** self.tamanho -1) * int(self.valor, 2)
 
-    # Método para avaliar cromossomo
+    # Método para avaliar código binário
     def avaliar(self):
         x = int(self.valor, 2)
         # Fórmula de avaliação seno(x²)/(3 - cos(e) - x)
@@ -80,4 +80,4 @@ class Cromossomo():
 
     # Método para representar o indivíduo como String
     def __repr__(self):
-        return "Cromossomo:[%s] | Avaliacao[%.2f] | Valor[%d]" % (self.valor, self.avaliacao, int(self.valor, 2))
+        return "Código binário:[%s] | Avaliacao[%.2f] | Nível de facilidade[%d]" % (self.valor, self.avaliacao, int(self.valor, 2))
