@@ -8,7 +8,7 @@ import random, time
 
 class Evo():
     # Método __init__
-    def __init__(self, tam_pop = 20, geracoes = 1000):
+    def __init__(self, tam_pop = 50, geracoes = 1000):
         
         self.pop = []
         self.tam_populacao = tam_pop
@@ -26,7 +26,7 @@ class Evo():
     def avalia(self):
         self.soma_avaliacoes = 0
         for Cromossomo in self.pop:
-            self.soma_avaliacoes += Cromossomo.avalia()
+            self.soma_avaliacoes += Cromossomo.avaliar()
 
     # Método de seleção entre os indivíduos avaliados.
     def escolha(self):
@@ -35,7 +35,7 @@ class Evo():
         i, aux = [0, 0]
         random.shuffle(self.pop)
         while aux < max and i < self.tam_populacao:
-            aux += self.pop[i].avalia
+            aux += self.pop[i].avaliacao
             i += 1
         i -= 1
         return i
@@ -56,7 +56,7 @@ class Evo():
         print("====================\nSimulação de mutação genético\n====================")
         self.popular()
         self.avalia()
-        ordem = sorted(self.pop, key = lambda x: x.avalia, reverse = True)
+        ordem = sorted(self.pop, key = lambda x: x.avaliacao, reverse = True)
         for i in range(self.geracoes):
             top1 = ordem[0]
             top2 = ordem[1]
@@ -69,9 +69,9 @@ class Evo():
 
             self.pop = self.nova_g()
             self.avalia()
-            ordem = sorted(self.pop, key = lambda x: x.avalia, reverse = True)
+            ordem = sorted(self.pop, key = lambda x: x.avaliacao, reverse = True)
         print('Melhor avaliado -> %s' % (ordem[1]))
 
 # Nova instância para executar algoritmo
-evolucao = Evo(tam_pop = 40, geracoes = 5)
+evolucao = Evo(tam_pop = 40, geracoes = 20)
 evolucao.algo_genetico()

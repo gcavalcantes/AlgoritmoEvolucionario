@@ -38,7 +38,7 @@ class Cromossomo():
     # Método de crossover que recebe dois cromossomos
     def crossover(self, aux_cromossomo):
         # Divide o cromossomo aleatoriamente
-        corta_index = int(random.random() * self.tamanho)
+        corta_index = int(random.random() * int(self.tamanho))
         novo_valor = ""
         if random.random() > .5:
             novo_valor = self.valor[0:corta_index] + aux_cromossomo.valor[corta_index:len(aux_cromossomo.valor)]
@@ -52,12 +52,12 @@ class Cromossomo():
     def mutacao(self,perc_mutacao):
         comeco, aux, fim = ['','','']
         # Para cada caractere em um cromossomo
-        for i in range(self.tamanho):
+        for i in range(len(self.tamanho)):
             # Se um número aleatório for menor que o percentual de mutação
             if random.random() < perc_mutacao:
                 # A cada iteração as variáveis recebem uma troca de valor de acordo com 'i', ou não
                 comeco = self.valor[0:i]
-                fim = self.valor[i+1:self.tamanho]
+                fim = self.valor[i+1:int(self.tamanho)]
                 aux = self.valor[i]
                 # Se a variável aux for igual a 1
                 if aux == '1':
