@@ -9,8 +9,8 @@ class Itens():
     '''
     # Método init
 
-    def __init__(self):
+    def __init__(self, peso, valor):
         '''
         Método
         '''
-        self.item = []
+        self.itens = [[], [], []]

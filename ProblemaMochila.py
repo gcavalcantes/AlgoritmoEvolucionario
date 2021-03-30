@@ -7,5 +7,11 @@ Código por Gabriel Cavalcante
 
 class Mochila():
     '''
-Classe mochila
+    Classe mochila
     '''
+
+    def __init__(self):
+        '''
+
+        '''
+        super().__init__()
