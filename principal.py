@@ -36,8 +36,8 @@ class Principal():
                 print("Quantos itens terá a lista? (Número inteiro)"))
             while (pergunta1 < 2):
                 print("Valor dever ser maior que um.")
-                pergunta1 = input(
-                    print("Quantos itens terá a lista? (Número inteiro)"))
+                pergunta1 = int(input(
+                    print("Quantos itens terá a lista? (Número inteiro)")))
         except ValueError:
             print('Erro: Resposta precisa ser um número inteiro.')
 
