@@ -49,6 +49,11 @@ class Principal():
         """
         pergunta2
         contador = 1
-        while contador <= numItens:
-            print('Qual o valor do intem {}'.format(numItens))
-            pergunta2 = input(print('Qual o valor do item?'))
+        try:
+            while contador <= numItens:
+                print('Qual o valor do intem {}'.format(numItens))
+                pergunta2 = input(
+                    print('Qual o valor do item {}?').format(contador))
+                contador += 1
+        except ValueError:
+            print('Erro: Resposta precisa ser um número inteiro.')
