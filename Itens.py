@@ -2,6 +2,8 @@
 Lista de itens.
 '''
 import random
+import Principal
+import ProblemaMochila
 
 
 class Itens():
@@ -24,13 +26,13 @@ class Itens():
         self.peso = peso
         self.beneficio = beneficio
 
-    def gerarItens():
+    def gerarItens(self):
         '''
         Função responsável por criar lista de itens que são
         '''
-        itensExistentes = GerarItensExistentes()
+        itensExistentes = gerarItensExistentes()
 
-    def gerarItensExistentes(quantidade):
+    def gerarItensExistentes(self, quantidade):
         '''
         Decide quais os itens que estão disponíveis na lista
         '''
@@ -40,3 +42,9 @@ class Itens():
             self.item[[contador], [0], [0]] = num
             contador = contador + 1
         return self.item
+
+    # TODO Métodos para gerenciar a lista de valores dos itens
+
+    # TODO Método para inserir na lista
+
+    # TODO Método para remover na lista

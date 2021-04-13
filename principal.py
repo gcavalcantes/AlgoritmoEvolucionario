@@ -10,14 +10,19 @@ class Principal():
     '''
     Classe principal do programa.
     '''
-    # Variável para o número de itens na solução
-    pergunta1 = 0
-    # Variável para o valor do item na pergunta 2. Deve ser int.
-    pergunta2Valor = 0
-    # Variável para o peso do item na pergunta 2. Deve ser float.
-    pergunta2Peso = 0.0
+
+    def __init__(self, pergunta1, pergunta2Valor, pergunta2Peso):
+        # Variável para o número de itens na solução
+        self.pergunta1 = 0
+        # Variável para o valor do item na pergunta 2. Deve ser int.
+        self.pergunta2Valor = 0
+        # Variável para o peso do item na pergunta 2. Deve ser float.
+        self.pergunta2Peso = 0.0
+
+        super().__init__()
 
     # TODO Função para fazer as perguntas.
+
     def perguntas(self):
         """
         """
