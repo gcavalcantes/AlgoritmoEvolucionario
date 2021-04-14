@@ -17,9 +17,9 @@ class Principal():
         # Variável para o valor do item na pergunta 2. Deve ser int.
         self.pergunta2Valor = 0
         # Variável para o peso do item na pergunta 2. Deve ser float.
-        self.pergunta2Peso = 0.0
+        self.pergunta3Peso = 0.0
         # Variável para o tamanho da mochila
-        self.pergunta3Tamanho = 0
+        self.pergunta4Tamanho = 0
 
         super().__init__()
 
@@ -33,7 +33,7 @@ class Principal():
         pergunta_2(numItens)
         tamanhoMochila = pergunta_3()
 
-    # TODO Função para a pergunta 1
+    # Função para a pergunta 1
     def pergunta_1(self):
         """
         Função que retorna o número de itens que será usado na solução e também pelos outros métodos da classe.
@@ -51,10 +51,10 @@ class Principal():
 
         return self.pergunta1
 
-    # TODO Função para a pergunta 2
+    # Função para a pergunta 2
     def pergunta_2(self, numItens):
         """
-
+        Retorna o valor do item
         contador: conta até o número de itens na lista.
         """
 
@@ -64,24 +64,41 @@ class Principal():
             while contador <= numItens:
                 self.pergunta2Valor = int(input(
                     print('Qual o valor do item {}?'.format(contador))))
-                self.pergunta2Peso = float(
-                    input(print('Qual o peso do item {}?'.format(contador))))
                 contador += 1
         # Tratamento de erro para caso a pergunta não seja um inteiro.
         except ValueError as ve:
             print('Erro: Resposta precisa ser um número inteiro.')
 
-    # TODO Função para a pergunta 3
-    def pergunta_3(self):
+    # Função para a pergunta 2
+    def pergunta_3(self, numItens):
+        """
+        Retorna o peso do item
+        contador: conta até o número de itens na lista.
+        """
+
+        contador = 1
+        try:
+            # Loop para a segunda pergunta.
+            while contador <= numItens:
+                self.pergunta3Peso = float(
+                    input(print('Qual o peso do item {}?'.format(contador))))
+                contador += 1
+        # Tratamento de erro para caso a pergunta não seja um inteiro.
+        except ValueError as ve:
+            print('Erro: Resposta precisa ser um número inteiro.')
+        return self.pergunta3Peso
+
+    # Função para a pergunta 3
+    def pergunta_4(self):
         """
         Função responsável por definir o tamanho da mochila
         """
 
         # Definindo o tamanho da mochila
         try:
-            self.pergunta3Tamanho = int(
+            self.pergunta4Tamanho = int(
                 input(print('Qual o espaço da mochila? (número inteiro)'.format())))
         except ValueError as ve:
             print('Erro: Resposta precisa ser um número inteiro.')
 
-        return self.pergunta3Tamanho
+        return self.pergunta4Tamanho

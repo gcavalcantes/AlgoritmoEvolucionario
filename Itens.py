@@ -11,7 +11,7 @@ class Itens():
         Classe responsável por lidar com as características dos itens e geração de itens
         '''
     codigo = []
-    # TODO Variável que recebe o número de itens a serem criados
+    # Variável que recebe o número de itens a serem criados
     numItens = Principal.pergunta1
 
     # Método init
@@ -27,16 +27,16 @@ class Itens():
 
     def gerarItens(self):
         '''
-        Função responsável por criar lista de itens que são
+        Função responsável por criar lista de itens.
         '''
         itensExistentes = gerarItensNaLista()
 
     def gerarItensNaLista(self, quantidade):
         '''
-        Decide quais os itens que estão disponíveis na lista
+        Decide quais os itens que estão disponíveis em uma solução
         '''
         contador = 0
-        while contador <= 7:
+        while contador <= quantidade:
             num = random.randint(0, 1)
             self.item[[contador], [0], [0]] = num
             contador = contador + 1
