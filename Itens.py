@@ -12,6 +12,7 @@ class Itens():
         '''
     codigo = []
     # TODO Variável que recebe o número de itens a serem criados
+    numItens = Principal.pergunta1
 
     # Método init
     def __init__(self, existe, peso, beneficio):
@@ -19,9 +20,7 @@ class Itens():
         Construto de OOP que cria um objeto quando a classe é chamada
                 e é passado como o primeiro parâmetro deste método.
         '''
-        self.item = [[],
-                     [8, 10, 4, 6, 12, 14, 7, 5],
-                     [10, 14, 8, 9, 16, 17, 9, 9]]
+        self.item = [[]]
         self.existe = existe
         self.peso = peso
         self.beneficio = beneficio
@@ -30,9 +29,9 @@ class Itens():
         '''
         Função responsável por criar lista de itens que são
         '''
-        itensExistentes = gerarItensExistentes()
+        itensExistentes = gerarItensNaLista()
 
-    def gerarItensExistentes(self, quantidade):
+    def gerarItensNaLista(self, quantidade):
         '''
         Decide quais os itens que estão disponíveis na lista
         '''
@@ -42,9 +41,3 @@ class Itens():
             self.item[[contador], [0], [0]] = num
             contador = contador + 1
         return self.item
-
-    # TODO Métodos para gerenciar a lista de valores dos itens
-
-    # TODO Método para inserir na lista
-
-    # TODO Método para remover na lista
