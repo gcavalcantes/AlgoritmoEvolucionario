@@ -11,7 +11,7 @@ class Principal():
     Classe principal do programa.
     '''
 
-    def __init__(self, pergunta1, pergunta2Valor, pergunta2Peso):
+    def __init__(self):
         # Variável para o número de itens na solução
         self.pergunta1 = 0
         # Variável para o valor do item na pergunta 2. Deve ser int.
@@ -22,16 +22,6 @@ class Principal():
         self.pergunta4Tamanho = 0
 
         super().__init__()
-
-    # TODO Função para fazer as perguntas.
-
-    def perguntas(self):
-        """
-        """
-        print("Algoritmo genético para o problema da mochila. /n Desenvolvido por Gabriel Cavalcante.")
-        numItens = pergunta_1()
-        pergunta_2(numItens)
-        tamanhoMochila = pergunta_3()
 
     # Função para a pergunta 1
     def pergunta_1(self):
@@ -75,7 +65,6 @@ class Principal():
         Retorna o peso do item
         contador: conta até o número de itens na lista.
         """
-
         contador = 1
         try:
             # Loop para a segunda pergunta.
@@ -93,7 +82,6 @@ class Principal():
         """
         Função responsável por definir o tamanho da mochila
         """
-
         # Definindo o tamanho da mochila
         try:
             self.pergunta4Tamanho = int(
@@ -102,3 +90,17 @@ class Principal():
             print('Erro: Resposta precisa ser um número inteiro.')
 
         return self.pergunta4Tamanho
+
+    # TODO Função para fazer as perguntas.
+    def perguntas(self):
+        """
+        """
+        print("Algoritmo genético para o problema da mochila. /n Desenvolvido por Gabriel Cavalcante.")
+        numItens = self.pergunta_1()
+        self.pergunta_2(numItens)
+        tamanhoMochila = self.pergunta_3()
+
+
+# TESTES
+main = Principal()
+main.perguntas()
