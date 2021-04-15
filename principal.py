@@ -14,11 +14,11 @@ class Principal():
     def __init__(self):
         # Variável para o número de itens na solução
         self.pergunta1 = 0
-        # Variável para o valor do item na pergunta 2. Deve ser int.
-        self.pergunta2Valor = 0
+        # Variável para o valor dos itens na pergunta 2. Deve ser int.
+        self.pergunta2Valor = []
         # Variável para o peso do item na pergunta 2. Deve ser float.
-        self.pergunta3Peso = 0.0
-        # Variável para o tamanho da mochila
+        self.pergunta3Peso = []
+        # Variável para a quantidade de peso que a mochila pode suportar.
         self.pergunta4Tamanho = 0
 
         super().__init__()
@@ -98,7 +98,7 @@ class Principal():
         print("Algoritmo genético para o problema da mochila. /n Desenvolvido por Gabriel Cavalcante.")
         numItens = self.pergunta_1()
         self.pergunta_2(numItens)
-        tamanhoMochila = self.pergunta_3()
+        pergunta4Tamanho = self.pergunta_3()
 
 
 # TESTES
