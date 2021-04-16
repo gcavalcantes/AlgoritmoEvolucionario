@@ -20,6 +20,8 @@ class Principal():
         self.pergunta3Peso = []
         # Variável para a quantidade de peso que a mochila pode suportar.
         self.pergunta4Tamanho = 0
+        # Variável para o número de itens na solução
+        self.numItens = 0
 
         super().__init__()
 
@@ -59,7 +61,7 @@ class Principal():
         except ValueError as ve:
             print('Erro: Resposta precisa ser um número inteiro.')
 
-    # Função para a pergunta 2
+    # Função para a pergunta 3
     def pergunta_3(self, numItens):
         """
         Retorna o peso do item
@@ -77,7 +79,7 @@ class Principal():
             print('Erro: Resposta precisa ser um número inteiro.')
         return self.pergunta3Peso
 
-    # Função para a pergunta 3
+    # Função para a pergunta 4
     def pergunta_4(self):
         """
         Função responsável por definir o tamanho da mochila
@@ -96,9 +98,10 @@ class Principal():
         """
         """
         print("Algoritmo genético para o problema da mochila. /n Desenvolvido por Gabriel Cavalcante.")
-        numItens = self.pergunta_1()
-        self.pergunta_2(numItens)
-        pergunta4Tamanho = self.pergunta_3()
+        self.numItens = self.pergunta_1()
+        self.pergunta_2(self.numItens)
+        self.pergunta3Peso = self.pergunta_3(self.numItens)
+        self.pergunta4Tamanho = self.pergunta_4()
 
 
 # TESTES

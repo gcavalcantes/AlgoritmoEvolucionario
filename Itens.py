@@ -12,10 +12,10 @@ class Itens():
         '''
     codigo = []
     # Variável que recebe o número de itens a serem criados
-    numItens = Principal.pergunta1
+    # numItens = Principal.pergunta1
 
     # Método init
-    def __init__(self, existe, peso, beneficio):
+    def __init__(self):
         '''
         Construto de OOP que cria um objeto quando a classe é chamada
                 e é passado como o primeiro parâmetro deste método.
