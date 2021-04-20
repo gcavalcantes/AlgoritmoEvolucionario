@@ -24,7 +24,7 @@ class Itens():
         self.listaTempo = [20, 30, 25, 28]
         self.listLucro = [60.0, 80.0, 90.0, 50.0]
         self.listaItem = []
-        self.beneficio = beneficio
+        self.beneficio = []
         self.fitness = fitness
 
     def gerarItens(self):
@@ -54,5 +54,10 @@ class Itens():
         '''
         # TODO Calculo do fitness de um item
         # O cálculo do benefício de um item na lista é feito diminuindo o custo do item pelo lucro e somando pelo tempo de produção. Quanto maior o número, maior o fitness
-        self.fitness = 0
         contador = 0
+        fimCalculo = False
+        while fimCalculo == False & contador < 4:
+            # Variável benefício recebe
+            self.beneficio[contador] = float(
+                (self.listaCusto[contador] - self.listLucro[contador]) + self.listaTempo[contador])
+            contador += 1
