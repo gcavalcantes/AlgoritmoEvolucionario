@@ -93,7 +93,7 @@ class Principal():
 
         return self.pergunta4Tamanho
 
-    # TODO Função para fazer as perguntas.
+    # Função para fazer as perguntas.
     def perguntas(self):
         """
         """

@@ -52,12 +52,17 @@ class Itens():
         '''
         Método reponsável por fazer o cálculo de fitness de solução uma solução. Este método retorna um fitness final
         '''
-        # TODO Calculo do fitness de um item
+        # Calculo do fitness de um item
         # O cálculo do benefício de um item na lista é feito diminuindo o custo do item pelo lucro e somando pelo tempo de produção. Quanto maior o número, maior o fitness
         contador = 0
         fimCalculo = False
         while fimCalculo == False & contador < 4:
-            # Variável benefício recebe
-            self.beneficio[contador] = float(
-                (self.listaCusto[contador] - self.listLucro[contador]) + self.listaTempo[contador])
+            if lista[contador] != 0:
+                # Variável benefício recebe
+                self.beneficio[contador] = float(
+                    (self.listaCusto[contador] - self.listLucro[contador]) + self.listaTempo[contador])
+            else:
+                self.beneficio[contador] = 0
             contador += 1
+            print('A lista de benefícios ficou assim: \n{}'.format(self.beneficio))
+            return self.beneficio
