@@ -24,8 +24,12 @@ class Itens():
         self.listaTempo = [20, 30, 25, 28]
         self.listLucro = [60.0, 80.0, 90.0, 50.0]
         self.listaItem = []
-        self.beneficio = []
+        self.beneficio = 0
         self.fitness = fitness
+        self.solucao1 = []
+        self.solucao2 = []
+        self.solucao3 = []
+        self.solucao4 = []
 
     def gerarItens(self):
         '''
@@ -39,7 +43,9 @@ class Itens():
         '''
         contador = 0
         while contador <= quantidadeDeItens:
+            # Variável que recebe 0 ou 1
             num = random.randint(0, 1)
+            # Lista da solução recebe 0 ou 1
             self.listaItem[contador] = num
             contador = contador + 1
         print('Lista final: {}'.format(self.listaItem))
@@ -47,7 +53,7 @@ class Itens():
 
     listaDeItens = gerarItensNaLista(4)
 
-    # TODO Método para avaliação da lista. Esta avaliação tem como fitness o cálculo envolvendo o custo de produção, o tempo de produção e o lucro de cada item na lista.
+    # Método para avaliação da lista. Esta avaliação tem como fitness o cálculo envolvendo o custo de produção, o tempo de produção e o lucro de cada item na lista.
     def avaliaResultado(self, lista):
         '''
         Método reponsável por fazer o cálculo de fitness de solução uma solução. Este método retorna um fitness final
@@ -59,10 +65,17 @@ class Itens():
         while fimCalculo == False & contador < 4:
             if lista[contador] != 0:
                 # Variável benefício recebe
-                self.beneficio[contador] = float(
+                self.beneficio += float(
                     (self.listaCusto[contador] - self.listLucro[contador]) + self.listaTempo[contador])
             else:
-                self.beneficio[contador] = 0
+                self.beneficio += 0
             contador += 1
             print('A lista de benefícios ficou assim: \n{}'.format(self.beneficio))
             return self.beneficio
+
+    # TODO Método para gerar várias listas que representam os soluções da geração atual
+    def gerarListas():
+        '''
+        Método que utiliza as variáveis declaradas no início para armazenar as soluções da geração atual.
+        '''
+        return null

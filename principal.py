@@ -97,7 +97,7 @@ class Principal():
     def perguntas(self):
         """
         """
-        print("Algoritmo genético para o problema da mochila. /n Desenvolvido por Gabriel Cavalcante.")
+        print("Algoritmo genético para o problema da mochila. \n Desenvolvido por Gabriel Cavalcante.")
         self.numItens = self.pergunta_1()
         self.pergunta_2(self.numItens)
         self.pergunta3Peso = self.pergunta_3(self.numItens)
