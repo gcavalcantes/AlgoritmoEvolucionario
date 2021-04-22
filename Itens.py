@@ -9,33 +9,32 @@ import ProblemaMochila
 class Itens():
     '''
         Classe responsável por lidar com as características dos itens e geração de itens
-        '''
-    codigo = []
-    # Variável que recebe o número de itens a serem criados
-    # numItens = Principal.pergunta1
+    '''
 
-    # Método init
     def __init__(self):
         '''
         Construto de OOP que cria um objeto quando a classe é chamada
                 e é passado como o primeiro parâmetro deste método.
         '''
+        self.nomesDosItens = ['Sandálias', 'Sapatos',
+                              'Botas femininas', 'Sapatos femininos']
+        self.materiaPrima = [0, 0, 0, 0]
         self.listaCusto = [100.0, 120.0, 150.0, 120.0]
-        self.listaTempo = [20, 30, 25, 28]
+        self.listaTempo = [20.0, 30.0, 25.0, 28.0]
         self.listLucro = [60.0, 80.0, 90.0, 50.0]
         self.listaItem = []
+        # Variável fitness de uma solução
         self.beneficio = 0
-        self.fitness = fitness
+        # Variáveis para as listas na geração atual
         self.solucao1 = []
         self.solucao2 = []
         self.solucao3 = []
         self.solucao4 = []
-
-    def gerarItens(self):
-        '''
-        Função responsável por criar lista de itens.
-        '''
-        itensExistentes = gerarItensNaLista()
+        # Variáveis para o fitness de cada solução
+        self.fitness1 = 0
+        self.fitness2 = 0
+        self.fitness3 = 0
+        self.fitness4 = 0
 
     def gerarItensNaLista(self, quantidadeDeItens):
         '''
@@ -48,10 +47,8 @@ class Itens():
             # Lista da solução recebe 0 ou 1
             self.listaItem[contador] = num
             contador = contador + 1
-        print('Lista final: {}'.format(self.listaItem))
+        print('Lista final: {}'.format(listaItem))
         return self.listaItem
-
-    listaDeItens = gerarItensNaLista(4)
 
     # Método para avaliação da lista. Esta avaliação tem como fitness o cálculo envolvendo o custo de produção, o tempo de produção e o lucro de cada item na lista.
     def avaliaResultado(self, lista):
@@ -65,7 +62,7 @@ class Itens():
         while fimCalculo == False & contador < 4:
             if lista[contador] != 0:
                 # Variável benefício recebe
-                self.beneficio += float(
+                beneficio += float(
                     (self.listaCusto[contador] - self.listLucro[contador]) + self.listaTempo[contador])
             else:
                 self.beneficio += 0
@@ -74,8 +71,23 @@ class Itens():
             return self.beneficio
 
     # TODO Método para gerar várias listas que representam os soluções da geração atual
-    def gerarListas():
+    def gerarListas(self):
         '''
         Método que utiliza as variáveis declaradas no início para armazenar as soluções da geração atual.
+        Os resultados são então avaliados usando o método de avaliação.
         '''
-        return null
+        # Geração das soluções
+        self.solucao1 = Itens.gerarItensNaLista(4)
+        print('Solução 1: {}'.format(self.solucao1))
+        self.solucao2 = Itens.gerarItensNaLista(4)
+        print('Solução 2: {}'.format(self.solucao1))
+        self.solucao3 = Itens.gerarItensNaLista(4)
+        print('Solução 3: {}'.format(self.solucao1))
+        self.solucao4 = Itens.gerarItensNaLista(4)
+        print('Solução 4: {}'.format(self.solucao1))
+
+        # Avaliação das soluções
+        self.fitness1 = Itens.avaliaResultado(self.solucao1)
+        self.fitness2 = Itens.avaliaResultado(self.solucao2)
+        self.fitness3 = Itens.avaliaResultado(self.solucao3)
+        self.fitness4 = Itens.avaliaResultado(self.solucao4)
