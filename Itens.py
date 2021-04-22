@@ -18,10 +18,10 @@ class Itens():
         '''
         self.nomesDosItens = ['Sandálias', 'Sapatos',
                               'Botas femininas', 'Sapatos femininos']
-        self.materiaPrima = [0, 0, 0, 0]
         self.listaCusto = [100.0, 120.0, 150.0, 120.0]
         self.listaTempo = [20.0, 30.0, 25.0, 28.0]
         self.listLucro = [60.0, 80.0, 90.0, 50.0]
+        # Variável para a lista de materias primas usadas.
         self.listaItem = []
         # Variável fitness de uma solução
         self.beneficio = 0
@@ -42,9 +42,9 @@ class Itens():
         '''
         contador = 0
         while contador <= quantidadeDeItens:
-            # Variável que recebe 0 ou 1
-            num = random.randint(0, 1)
-            # Lista da solução recebe 0 ou 1
+            # Variável que recebe um número entre 0 e 400
+            num = random.randint(0, 400)
+            # Lista da solução recebe 0 até 400
             self.listaItem[contador] = num
             contador = contador + 1
         print('Lista final: {}'.format(listaItem))
@@ -91,3 +91,13 @@ class Itens():
         self.fitness2 = Itens.avaliaResultado(self.solucao2)
         self.fitness3 = Itens.avaliaResultado(self.solucao3)
         self.fitness4 = Itens.avaliaResultado(self.solucao4)
+
+    # TODO Método para selecionar os pais que gerarão a próxima geração.
+    def selecionaPais(self):
+        '''
+        '''
+        contador = 0
+        while contador < 4:
+            if self.listaItem[contador] != 0:
+                if self.listaItem[contador] >= 200:
+                    #
