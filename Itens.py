@@ -36,17 +36,20 @@ class Itens():
         self.fitness3 = 0
         self.fitness4 = 0
 
+    # Gera uma lista de soluções
     def gerarItensNaLista(self, quantidadeDeItens):
         '''
         Decide quais os itens que estão disponíveis em uma solução
         '''
+        maxMateriaPrima = 400
         contador = 0
         while contador <= quantidadeDeItens:
             # Variável que recebe um número entre 0 e 400
-            num = random.randint(0, 400)
-            # Lista da solução recebe 0 até 400
+            num = random.randint(0, maxMateriaPrima)
+            # Lista da solução recebe 0 até a materia prima disponível
             self.listaItem[contador] = num
             contador = contador + 1
+            maxMateriaPrima -= num
         print('Lista final: {}'.format(listaItem))
         return self.listaItem
 
@@ -69,7 +72,7 @@ class Itens():
             print('A lista de benefícios ficou assim: \n{}'.format(self.beneficio))
             return self.beneficio
 
-    # TODO Método para gerar várias listas que representam os soluções da geração atual
+    # Método para gerar várias listas que representam os soluções da geração atual
     def gerarListasIniciais(self):
         '''
         Método que utiliza as variáveis declaradas no início para armazenar as soluções da geração atual.
@@ -98,13 +101,13 @@ class Itens():
         '''
         # Variável de contagem e manipulação da lista
         contador = 0
-        # Variável para armazenar a possibilidade de um item ser o pai.
-        pai = []
+        # Variáveis para armazenar um item que é pai.
+        pai1 = []
+        pai2 = []
+        # Junta todos os fitness
+        fitness = [self.fitness1, self.fitness2, self.fitness3, self.fitness4]
+        # Encontra o maior fitness na solução
         while contador < 4:
-            if self.listaItem[contador] != 0:
-                if self.listaItem[contador] >= 200:
-                    # Aumenta possibilidade do item ser escolhido como pai.
-                    pai[contador] = True
-                else:
-                    # Diminui possibilidade do item ser escolhido como pai.
-                    pai[contador] = False
+            # Se o fitness atual for maior que o próximo
+            if fitness[contador] >= fitness[contador + 1]:
+                pai1 = self.solucao1[contador]
