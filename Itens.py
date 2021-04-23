@@ -58,8 +58,7 @@ class Itens():
         # Calculo do fitness de um item
         # O cálculo do benefício de um item na lista é feito diminuindo o custo do item pelo lucro e somando pelo tempo de produção. Quanto maior o número, maior o fitness
         contador = 0
-        fimCalculo = False
-        while fimCalculo == False & contador < 4:
+        while contador < 4:
             if lista[contador] != 0:
                 # Variável benefício recebe
                 beneficio += float(
@@ -71,7 +70,7 @@ class Itens():
             return self.beneficio
 
     # TODO Método para gerar várias listas que representam os soluções da geração atual
-    def gerarListas(self):
+    def gerarListasIniciais(self):
         '''
         Método que utiliza as variáveis declaradas no início para armazenar as soluções da geração atual.
         Os resultados são então avaliados usando o método de avaliação.
@@ -95,9 +94,17 @@ class Itens():
     # TODO Método para selecionar os pais que gerarão a próxima geração.
     def selecionaPais(self):
         '''
+        Método que utiliza aleatoriedade para decidir quais soluções serão
         '''
+        # Variável de contagem e manipulação da lista
         contador = 0
+        # Variável para armazenar a possibilidade de um item ser o pai.
+        pai = []
         while contador < 4:
             if self.listaItem[contador] != 0:
                 if self.listaItem[contador] >= 200:
-                    #
+                    # Aumenta possibilidade do item ser escolhido como pai.
+                    pai[contador] = True
+                else:
+                    # Diminui possibilidade do item ser escolhido como pai.
+                    pai[contador] = False
