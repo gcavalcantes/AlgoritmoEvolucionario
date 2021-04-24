@@ -25,18 +25,19 @@ class Itens():
         self.listaItem = []
         # Variável fitness de uma solução
         self.beneficio = 0
-        # Variáveis para as listas na geração atual
-        self.solucao1 = []
-        self.solucao2 = []
-        self.solucao3 = []
-        self.solucao4 = []
-        # Variáveis para o fitness de cada solução
-        self.fitness1 = 0
-        self.fitness2 = 0
-        self.fitness3 = 0
-        self.fitness4 = 0
+        # Variável para as listas na geração atual
+        self.solucao = []
+        # Variável para o fitness de cada solução
+        self.fitness = 0
+        # Variáveis para os pais da geração atual
+        self.pai1 = []
+        self.pai2 = []
+        # Variáveis para os filhos
+        self.filho1 = []
+        self.filho2 = []
 
     # Gera uma lista de soluções
+
     def gerarItensNaLista(self, quantidadeDeItens):
         '''
         Decide quais os itens que estão disponíveis em uma solução
@@ -79,22 +80,19 @@ class Itens():
         Os resultados são então avaliados usando o método de avaliação.
         '''
         # Geração das soluções
-        self.solucao1 = Itens.gerarItensNaLista(4)
-        print('Solução 1: {}'.format(self.solucao1))
-        self.solucao2 = Itens.gerarItensNaLista(4)
-        print('Solução 2: {}'.format(self.solucao1))
-        self.solucao3 = Itens.gerarItensNaLista(4)
-        print('Solução 3: {}'.format(self.solucao1))
-        self.solucao4 = Itens.gerarItensNaLista(4)
-        print('Solução 4: {}'.format(self.solucao1))
+        contador = 0
+        while contador < 4:
+            self.solucao[contador] = Itens.gerarItensNaLista(4)
+            print('Solução gerada: {}\n'.format(self.solucao))
 
         # Avaliação das soluções
-        self.fitness1 = Itens.avaliaResultado(self.solucao1)
-        self.fitness2 = Itens.avaliaResultado(self.solucao2)
-        self.fitness3 = Itens.avaliaResultado(self.solucao3)
-        self.fitness4 = Itens.avaliaResultado(self.solucao4)
+        contador = 0
+        while contador < 4:
+            self.fitness[contador] = Itens.avaliaResultado(
+                self.solucao[contador])
 
-    # TODO Método para selecionar os pais que gerarão a próxima geração.
+    # Método para selecionar os pais que gerarão a próxima geração.
+
     def selecionaPais(self):
         '''
         Método que utiliza aleatoriedade para decidir quais soluções serão
@@ -102,12 +100,41 @@ class Itens():
         # Variável de contagem e manipulação da lista
         contador = 0
         # Variáveis para armazenar um item que é pai.
-        pai1 = []
-        pai2 = []
-        # Junta todos os fitness
-        fitness = [self.fitness1, self.fitness2, self.fitness3, self.fitness4]
+        self.pai1 = []
+        self.pai2 = []
         # Encontra o maior fitness na solução
         while contador < 4:
             # Se o fitness atual for maior que o próximo
+            if self.fitness[contador] >= self.fitness[contador + 1]:
+                pai1 = self.solucao[contador]
+            contador += 1
+        contador = 0
+        # Encontra o menor fitness na solução
+        while contador < 4:
+            # Se o fitness atual for menor que o próximo
             if fitness[contador] >= fitness[contador + 1]:
-                pai1 = self.solucao1[contador]
+                pai2 = self.solucao[contador]
+            contador += 1
+
+    # Método de crossover
+    def crossover(self):
+        # Filho 1 recebe genes aleatórios
+        self.filho1 = []
+        self.filho1.append(self.pai1[random.randint(0, 3)])
+        self.filho1.append(self.pai1[random.randint(0, 3)])
+        self.filho1.append(self.pai2[random.randint(0, 3)])
+        self.filho1.append(self.pai2[random.randint(0, 3)])
+        # Filho 2 recebe genes aleatórios
+        self.filho2 = []
+        self.filho2.append(self.pai2[random.randint(0, 3)])
+        self.filho2.append(self.pai2[random.randint(0, 3)])
+        self.filho2.append(self.pai1[random.randint(0, 3)])
+        self.filho2.append(self.pai1[random.randint(0, 3)])
+
+    # TODO Mutação
+    def mutacao(self):
+        return None
+
+    # TODO Método para a nova geração
+    def novaGeração(self):
+        return None
